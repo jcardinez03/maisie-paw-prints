@@ -6,8 +6,9 @@ import Link from "next/link";
 import { useMobileMenu } from "./hooks/useMobileMenu";
 type NavbarProps = {
     pacifico: string;
+    dancingScript: string;
 };
-export const Navbar = ({ pacifico }: NavbarProps) => {
+export const Navbar = ({ pacifico, dancingScript }: NavbarProps) => {
 
     const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
@@ -29,7 +30,7 @@ export const Navbar = ({ pacifico }: NavbarProps) => {
                         <div className={`${pacifico} font-display text-white text-xl leading-none`}>
                             MaisiePaw
                         </div>
-                        <div className={`${pacifico} font-script text-pink text-sm leading-none`}>
+                        <div className={`${dancingScript} font-script text-pink text-sm leading-none`}>
                             Prints
                         </div>
                     </div>

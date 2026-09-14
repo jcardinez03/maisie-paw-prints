@@ -18,7 +18,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                     <p className="text-white/50 text-lg max-w-lg mx-auto">From tiny pins to big boards - we print all your creative dreams with quality and care.</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="badge-pins">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <CircleStar className="text-pink" width={40} height={40} />
                         </div>
@@ -29,7 +29,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                         <p className="text-white/50 text-sm leading-relaxed">
                             Custom printed badges in any shape and size. <br />Perfect for events, merch, and fandoms.</p>
                     </div>
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="sintra-boards">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <SquareKanban className="text-pink" width={40} height={40} />
                         </div>
@@ -41,7 +41,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                             Lightweight PVC A4 foam boards, ideal for portrait and landscape display.
                         </p>
                     </div>
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="keychains">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <Link className="text-pink" width={40} height={40} />
                         </div>
@@ -52,7 +52,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                         <p className="text-white/50 text-sm leading-relaxed">
                             Double sided acrylic keychains with vibrant full-color painting</p>
                     </div>
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="mirror-keychains">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <MirrorRound className="text-pink" width={40} height={40} />
                         </div>
@@ -64,7 +64,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                             Gorgeous back mirror keychains that shimmer and dazzle.
                         </p>
                     </div>
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="photo-prints">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <Images className="text-pink" width={40} height={40} />
                         </div>
@@ -76,7 +76,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                             High-quality photo prints on premium matte or glosy paper
                         </p>
                     </div>
-                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]">
+                    <div className="group bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-pink/40 hover:bg-white/[0.07]" id="tote-bags">
                         <div className="w-16 h-16 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300">
                             <PaperBag className="text-pink" width={40} height={40} />
                         </div>
