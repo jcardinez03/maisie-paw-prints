@@ -17,6 +17,10 @@ interface ShowOrderProps {
     details: string;
     status?: string;
     created_at?: number | string | Date;
+    order_images?: {
+      id: number;
+      image: string;
+    }[];
   };
 }
 
@@ -33,11 +37,24 @@ export default function ShowOrder({ order }: ShowOrderProps) {
           <h1 className={`${pacifico} font-display text-4xl md:text-5xl text-white`}>
             Order #{order.id}
           </h1>
-          <Link href="/admin/orders" className={`${nunito} text-sm text-white/60 hover:text-white transition-colors`}>
+          <Link href="/admin/orders" className={`${nunito} text-md text-white/60 hover:text-white transition-colors`}>
             ← Back to Orders
           </Link>
         </div>
       </div>
+
+      {/* Order Image */}
+      {order.order_images && (
+        <div className="w-full md:w-[70%] mx-auto mb-10 px-5">
+          <div className="rounded-2xl p-2 flex flex-wrap flex-row gap-4">
+            {order.order_images.map((image) => (
+              <div key={image.id} className="w-30 h-30 overflow-hidden border border-white/10 md:flex-wrap">
+                <img src={image.image} alt={`order ${order.id} image`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Order Details */}
       <div className="w-full md:w-[70%] mx-auto px-5 pb-12">
@@ -70,8 +87,8 @@ export default function ShowOrder({ order }: ShowOrderProps) {
 
           {/* Action Buttons */}
           <div className="px-6 py-6 border-t border-white/10">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
                 <Button
                   variant="outline"
                   onClick={() => {
@@ -96,7 +113,7 @@ export default function ShowOrder({ order }: ShowOrderProps) {
               </div>
 
               {/* Status Update Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
                 <Button
                   variant={status === "pending" ? "default" : "outline"}
                   onClick={() => {
