@@ -29,7 +29,7 @@ const dancingScript = Dancing_Script({
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden bg-black">
+    <main className="relative bg-black">
       <Navbar pacifico={pacifico.className} dancingScript={dancingScript.className}/>
       <Banner nunito={nunito.className} pacifico={pacifico.className}/>
       <Product pacifico={pacifico.className}/>

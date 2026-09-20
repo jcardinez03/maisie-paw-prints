@@ -7,7 +7,7 @@ type ProductProps = {
 export const Product = ({ pacifico }: ProductProps) => {
     return (
         <>
-            <div className="w-full md:w-[70%] mx-auto px-5 py-20">
+            <div className="w-full md:w-[70%] mx-auto px-5 py-20" id="products">
                 <div className="text-center mb-14">
                     <div className="flex items-center justify-center gap-2 mb-3">
                         <PawPrint className="text-pink" />

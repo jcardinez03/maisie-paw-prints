@@ -1,6 +1,7 @@
 "use client";
 import { PawPrint } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 type BannerProps = {
     nunito: string;
     pacifico: string;
@@ -11,8 +12,8 @@ export const Banner = ({ nunito, pacifico }: BannerProps) => {
         <>
             <div className="w-full md:w-[70%] mx-auto px-5 py-16 md:py-28 grid md:grid-cols-2 gap-10 items-center relative">
                 <div className="order-2 md:order-1">
-                    <div className="inline-flex items-center gap-2 border border-#pink/40 text-#pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6">
-                        <PawPrint width={15} height={15} /> Handcrafted with love
+                    <div className="inline-flex items-center gap-2 border border-#pink/40 text-pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 animate-pulse">
+                        <PawPrint width={15} height={15}/> Handcrafted with love
                     </div>
                     <h1
                         className={`${pacifico} font-display text-5xl md:text-6xl leading-tight mb-5 text-white`}
@@ -45,13 +46,16 @@ export const Banner = ({ nunito, pacifico }: BannerProps) => {
                     <div className="relative">
                         <div className="absolute -inset-5 bg-pink/50 rounded-full blur-3xl pointer-events-none" />
                         <div className="relative w-72 h-72 md:w-100 md:h-100 rounded-full border-2 border-pink/70 bg-transparent overflow-hidden flex items-center justify-center">
+                            <Link href="/login">
                             <Image
                                 src="/images/icon.png"
                                 alt="Image of Maisie"
                                 width={400}
                                 height={400}
                                 className="object-contain object-bottom drop-shadow-2xl rounded-full"
+                                loading="eager"
                             />
+                            </Link>
                         </div>
                     </div>
                 </div>

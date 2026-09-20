@@ -8,7 +8,7 @@ type StoryProps = {
 export const Story = ({ pacifico, dancingScript }: StoryProps) => {
     return (
         <>
-            <div className="bg-white/3 border-y border-white/10 py-20">
+            <div className="bg-white/3 border-y border-white/10 py-20" id="story">
                 <div className="w-full md:w-[70%] mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative">
                         <div className="bg-pink/10 border border-pink/25 rounded-3xl p-8 backdrop-blur-sm">
@@ -32,7 +32,7 @@ export const Story = ({ pacifico, dancingScript }: StoryProps) => {
                         <PawPrint className="absolute -top-4 -right-4 w-10 h-10 text-pink opacity-20" />
                     </div>
                     <div>
-                        <div className="inline-flex items-center gap-2 border border-pink/30 text-pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">Our story</div>
+                        <div className="inline-flex items-center gap-2 border border-pink/30 text-pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 animate-pulse">Our story</div>
                         <h2 className={`${pacifico} text-4xl mb-5 text-white`}>
                             Made with Paws <span className="text-pink">&</span> Passion
                         </h2>
