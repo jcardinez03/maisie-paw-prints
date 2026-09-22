@@ -33,7 +33,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                                 <span className="text-pink font-bold text-xs bg-pink/10 border border-pink/20 px-2.5 py-1 rounded-full">From ₱ 40</span>
                             </div>
                         </div>
-                        <div className="absolute overflow-auto inset-0 rounded-2xl flex flex-col items-center justify-center gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10" onClick={(e) => {
+                        <div className="absolute inset-0 overflow-auto rounded-2xl flex flex-col items-center justify-start gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10 p-8" onClick={(e) => {
                             e.stopPropagation();
                             setFlipped(null);
                         }}>
@@ -60,7 +60,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                                 <span className="text-pink font-bold text-xs bg-pink/10 border border-pink/20 px-2.5 py-1 rounded-full">From ₱ 150</span>
                             </div>
                         </div>
-                        <div className="absolute overflow-auto inset-0 rounded-2xl flex flex-col items-center justify-center gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10" onClick={(e) => {
+                        <div className="absolute overflow-auto inset-0 rounded-2xl flex flex-col items-center justify-center gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10 p-8" onClick={(e) => {
                             e.stopPropagation();
                             setFlipped(null);
                         }}>
