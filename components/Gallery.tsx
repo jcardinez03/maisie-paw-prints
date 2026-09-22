@@ -31,17 +31,17 @@ export const Gallery = ({ pacifico, dancingScript }: GalleryProps) => {
                     </div>
                     <div className="group relative rounded-2xl overflow-hidden aspect-square cursor-pointer bg-white/5 border border-white/10 hover:border-pink/40 transition-all duration-300">
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                            <Image src="/images/mirror-keychain2.jpg" width={500} height={500} alt="Badge Pin" className="object-cover" />
+                            <Image src="/images/mirror-keychain2.jpg" width={500} height={500} alt="mirror" className="object-cover" />
                         </div>
                     </div>
                     <div className="group relative rounded-2xl overflow-hidden aspect-square cursor-pointer bg-white/5 border border-white/10 hover:border-pink/40 transition-all duration-300">
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                            <Image src="/images/sintra-board2.jpg" width={500} height={500} alt="Badge Pin" className="object-cover" />
+                            <Image src="/images/sintra-board2.jpg" width={500} height={500} alt="sintra" className="object-cover" />
                         </div>
                     </div>
                     <div className="group relative rounded-2xl overflow-hidden aspect-square cursor-pointer bg-white/5 border border-white/10 hover:border-pink/40 transition-all duration-300">
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                            <Image src="/images/photo-print.jpg" width={500} height={500} alt="Badge Pin" className="object-cover" />
+                            <Image src="/images/acrylic-keychain.jpg" width={500} height={500} alt="acrylic" className="object-cover" />
                         </div>
                     </div>
                     <div className="group relative rounded-2xl overflow-hidden aspect-square cursor-pointer bg-white/5 border border-white/10 hover:border-pink/40 transition-all duration-300">

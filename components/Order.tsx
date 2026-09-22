@@ -134,6 +134,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                         }
                                         } multiple />
                                     </div>
+                                    <p className="text-sm text-red-500/70">Maximum of 2mb per image</p>
                                     {imagePreview.map((preview) => (
                                         <div className="border-2 h-50 w-50" key={preview}>
                                             <img key={preview} src={preview} alt="Preview" className="object-cover w-full h-full" />

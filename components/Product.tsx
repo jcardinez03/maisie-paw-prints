@@ -37,7 +37,7 @@ export const Product = ({ pacifico }: ProductProps) => {
                             e.stopPropagation();
                             setFlipped(null);
                         }}>
-                            <div className="text-white p-8">
+                            <div className="text-white">
                                 <h3 className="text-pink text-lg font-bold">Make your favorite moments, people, characters, or designs wearable!</h3>
                                 <p className="mb-4 text-sm">
                                     Our 58mm Custom Badge Pins are perfect for personalizing your bags, pouches, jackets, lanyards, and more. Whether it's your favorite photo, a cute chibi design, fandom, business logo, or your own artwork—you can turn it into a pin!
@@ -60,11 +60,11 @@ export const Product = ({ pacifico }: ProductProps) => {
                                 <span className="text-pink font-bold text-xs bg-pink/10 border border-pink/20 px-2.5 py-1 rounded-full">From ₱ 150</span>
                             </div>
                         </div>
-                        <div className="absolute overflow-auto inset-0 rounded-2xl flex flex-col items-center justify-center gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10 p-8" onClick={(e) => {
+                        <div className="absolute overflow-auto inset-0 rounded-2xl flex flex-col items-center justify-start gap-3 backface-hidden rotate-y-180 bg-white/5 border border-white/10 p-8" onClick={(e) => {
                             e.stopPropagation();
                             setFlipped(null);
                         }}>
-                            <div className="text-white p-8">
+                            <div className="text-white">
                                 <h3 className="text-pink text-lg font-bold">Turn your favorite photos and designs into a stylish display piece!</h3>
                                 <p className="mb-4 text-sm">
                                     Our A4 Sintra Prints are perfect for photos, artwork, signs, personalized designs, room décor, and special memories you want to display.
