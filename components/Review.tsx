@@ -61,8 +61,8 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                             storeReview(form).then(() => {
                                 setForm(initialForm);
                                 setImage([]);
-                                setMessage("Thank you for your review!");
                                 setIsShowingForm(false);
+                                setMessage("Thank you for your review!");
                                 setTimeout(() => {
                                     setMessage("");
                                 }, 5000);
@@ -175,7 +175,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                     )}
                 </div>
                 {message &&
-                    <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-200 h-50 border border-white/20 rounded-2xl flex items-center justify-center">
+                    <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-[90%] max-w-200 min-h-50 border border-white/20 rounded-2xl flex items-center justify-center">
                         <div className="text-green-500 flex items-center gap-4">
                             <span>{message}</span>
 
