@@ -92,16 +92,14 @@ export const Product = ({ pacifico }: ProductProps) => {
                             setFlipped(null);
                         }}>
                             <div className="text-white">
-                                <h3 className="text-pink text-lg font-bold">Carry your favorite memories with you!</h3>
+                                <h3 className="text-pink text-lg font-bold">Cute AND useful! 💕 Take your favorite photo or design with you wherever you go.</h3>
                                 <p className="mb-4 text-sm">
-                                    Our Back-to-Back Photo Acrylic Keychain lets you feature two photos in one keychain—one on each side. Perfect for couples, besties, family, pets, favorite characters, or any two photos you want to keep close.
+                                    Our 58mm Mirror Keychain combines a fun personalized design with a handy mini mirror—perfect for your bag, pouch, keys, or as a thoughtful little gift.
                                 </p>
-                                <p className="mb-2 text-sm">Size: 5cm x 3.2cm</p>
-                                <p className="mb-2 text-sm">Acrylic keychain</p>
-                                <p className="mb-2 text-sm">Back-to-back photo design</p>
-                                <p className="mb-2 text-sm">Includes keychain attachment</p>
-                                <p className="mb-2 text-sm">Customizable with your own photo or design</p>
-                                <p className="text-sm">Perfect for gifts, souvenirs, couples & special occasions</p>
+                                <p className="mb-2 text-sm">Size: 58mm</p>
+                                <p className="mb-2 text-sm">Comes with a keychain attachment</p>
+                                <p className="mb-2 text-sm"> Customizable design</p>
+                                <p className="text-sm">Great for souvenirs, giveaways, birthdays & special occasions</p>
                             </div>
                         </div>
                     </div>
