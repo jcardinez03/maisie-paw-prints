@@ -8,7 +8,7 @@ type StoryProps = {
 export const Story = ({ pacifico, dancingScript }: StoryProps) => {
     return (
         <>
-            <div className="bg-white/3 border-y border-white/10 py-20" id="story">
+            <div className="bg-white/3 border-y border-white/10 py-20 w-full" id="story">
                 <div className="w-full md:w-[70%] mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative">
                         <div className="bg-pink/10 border border-pink/25 rounded-3xl p-8 backdrop-blur-sm">

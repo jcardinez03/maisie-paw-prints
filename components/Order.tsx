@@ -27,7 +27,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
     console.log(orderModalOpen);
     return (
         <>
-            <div className="bg-pink/8 border-t border-pink/20 py-20 relative overflow-hidden" id="order">
+            <div className="bg-pink/8 border-t border-pink/20 py-20 relative overflow-hidden w-full" id="order">
                 <div className="absolute inset-0 bg-pink/5">
                     {/* for paw background */}
 

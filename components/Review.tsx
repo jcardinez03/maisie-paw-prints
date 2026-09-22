@@ -33,7 +33,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
 
     return (
         <>
-            <div className="bg-white/3 border-y border-white/10 py-20" id="reviews">
+            <div className="bg-white/3 border-y border-white/10 py-20 w-full" id="reviews">
                 <div className="w-full md:w-[70%] mx-auto px-5 py-20" id="reviews">
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-2 mb-3">

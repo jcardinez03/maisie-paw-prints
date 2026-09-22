@@ -24,8 +24,8 @@ export const Product = ({ pacifico }: ProductProps) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "badge-pins" ? 'rotate-y-180' : ''}`} id="badge-pins" onClick={() => setFlipped("badge-pins")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
                                 <Image src="/images/badge-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">
@@ -51,8 +51,8 @@ export const Product = ({ pacifico }: ProductProps) => {
                     </div>
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "sintra-board" ? 'rotate-y-180' : ''}`} id="sintra-board" onClick={() => setFlipped("sintra-board")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
                                 <Image src="/images/sintra-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">
@@ -78,9 +78,9 @@ export const Product = ({ pacifico }: ProductProps) => {
                     </div>
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "mirror" ? 'rotate-y-180' : ''}`} id="mirror" onClick={() => setFlipped("mirror")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
-                                <Image src="/images/acrylic-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                                <Image src="/images/mirror-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">
                                 <h3 className={`text-white text-3xl ${pacifico}`}>Mirror Keychain</h3>
@@ -107,8 +107,8 @@ export const Product = ({ pacifico }: ProductProps) => {
                     </div>
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "acrylic" ? 'rotate-y-180' : ''}`} id="sintra-board" onClick={() => setFlipped("acrylic")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
                                 <Image src="/images/acrylic-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">
@@ -136,8 +136,8 @@ export const Product = ({ pacifico }: ProductProps) => {
                     </div>
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "photobook" ? 'rotate-y-180' : ''}`} id="photobook" onClick={() => setFlipped("photobook")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
                                 <Image src="/images/photobook-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">
@@ -162,8 +162,8 @@ export const Product = ({ pacifico }: ProductProps) => {
                     </div>
 
                     <div className={`group relative bg-white/5 border border-white/10 rounded-3xl p-7 transform-3d hover:border-pink/40 hover:bg-white/[0.07] transition-transform duration-700 ${flipped === "tote" ? 'rotate-y-180' : ''}`} id="tote" onClick={() => setFlipped("tote")}>
-                        <div className="backface-hidden flex flex-row gap-10">
-                            <div className="relative shrink-0 w-40 h-40 rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
+                        <div className="backface-hidden flex flex-col sm:flex-row gap-5 sm:gap-10">
+                            <div className="relative shrink-0 w-[40%] h-[40%] rounded-2xl bg-pink/10 border border-pink/20 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 backface-hidden">
                                 <Image src="/images/tote-pink.jpg" alt="Badge pin image" height={300} width={300} className="object-contain rounded-2xl"></Image>
                             </div>
                             <div className="flex flex-col items-start gap-10 mb-2 backface-hidden">

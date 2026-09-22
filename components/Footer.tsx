@@ -9,7 +9,7 @@ type FooterProps = {
 export const Footer = ({ pacifico, dancingScript }: FooterProps) => {
     return (
         <>
-            <footer className="bg-black border-t border-white/15 rounded-xl px-5 py-12">
+            <footer className="w-full bg-black border-t border-white/15 rounded-xl px-5 py-12">
                 <div className="w-full md:w-[70%] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                         <div>

@@ -13,7 +13,7 @@ export const Navbar = ({ pacifico, dancingScript }: NavbarProps) => {
     const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
 
     return (
-        <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
+        <nav className="sticky top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-white/10 overflow-hidden">
             <div className="w-full md:w-[70%] mx-auto px-5 flex items-center justify-between h-16">
                 <a href="#" className="flex items-center gap-2.5">
                     <Image
