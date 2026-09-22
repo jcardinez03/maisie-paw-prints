@@ -61,11 +61,11 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                     setMessage("Successfully Ordered! Thank you!");
                                     setTimeout(() => {
                                         setMessage("");
-                                    }, 10000);
+                                    }, 5000);
                                 }).finally(() => {
                                     setTimeout(() => {
                                         setIsLoading(false);
-                                    }, 3000);
+                                    }, 0);
                                 });
                             }} method="post">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -78,7 +78,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                             }
                                             ))
                                         }
-                                        />
+                                        required/>
                                     </div>
                                     <div>
                                         <label htmlFor="email" className="text-white/70 text-sm font-bold block mb-1.5">Email Address</label>
@@ -86,7 +86,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                             onChange={(e) => setForm((prev) => ({
                                                 ...prev,
                                                 email: e.target.value
-                                            }))} />
+                                            }))} required/>
                                     </div>
                                     <div>
                                         <label htmlFor="Phone Number" className="text-white/70 text-sm font-bold block mb-1.5">
@@ -97,14 +97,14 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                                 ...prev,
                                                 phone_number: e.target.value
                                             }))}
-                                        />
+                                        required/>
                                     </div>
                                     <div>
                                         <label htmlFor="product" className="text-white/70 text-sm font-bold block mb-1.5 custom-cursor-default-hover">Product Type</label>
                                         <select name="product" id="product" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-[#111] focus:outline-none focus:border-pink/60 focus:ring-pink/15 transition-all" value={form.product_id} onChange={(e) => setForm((prev) => ({
                                             ...prev,
                                             product_id: Number(e.target.value)
-                                        }))}>
+                                        }))} required>
                                             <option hidden>Choose a product..</option>
                                             {products.map((product) => (
                                                 <option value={product.id} key={product.id}>
@@ -119,7 +119,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                         <textarea name="details" id="details" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-white/5 placeholder-white/25 focus:outline-none focus:border-pink/60 focus:ring-2 focus:ring-pink/15 transition-all resize-none" placeholder="Describe your design, quantity, size, and any special requests..." value={form.details} onChange={(e) => setForm((prev) => ({
                                             ...prev,
                                             details: e.target.value
-                                        }))}></textarea>
+                                        }))} required></textarea>
                                     </div>
 
                                     <div className="sm:col-span-2">
@@ -132,9 +132,8 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                                 image: files
                                             }));
                                         }
-                                        } multiple />
+                                        } multiple required/>
                                     </div>
-                                    <p className="text-sm text-red-500/70">Maximum of 2mb per image</p>
                                     {imagePreview.map((preview) => (
                                         <div className="border-2 h-50 w-50" key={preview}>
                                             <img key={preview} src={preview} alt="Preview" className="object-cover w-full h-full" />
