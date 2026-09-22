@@ -65,7 +65,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                 setIsShowingForm(false);
                                 setTimeout(() => {
                                     setMessage("");
-                                }, 10000);
+                                }, 5000);
                             }).finally(() => {
                                 setIsLoading(false);
                             });
@@ -105,11 +105,11 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                                     onClick={() => setForm({ ...form, rating: star })}
                                                     className={`w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 text-pink rounded-lg transition-colors duration-200 ${form.rating >= star ? 'text-pink/80' : 'text-white/50'}`}
                                                 >
-                                                    <PawPrint size={16} />
+                                                    <PawPrint size={16} fill="currentColor" />
                                                 </button>
                                             ))}
                                         </div>
-                                        <p className="mt-2 text-white/50 text-sm">Selected: {form.rating} stars</p>
+                                        <p className="mt-2 text-white/50 text-sm">Selected: {form.rating} paws</p>
                                     </div>
                                     <div className="sm:col-span-2">
                                         <label htmlFor="image" className="text-white/70 text-sm font-bold block mb-1.5">Image</label>
@@ -160,18 +160,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                 >
                                     Submit Review
                                 </button>
-                                {message &&
-                                    <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-200 h-50 border border-white/20 rounded-2xl flex items-center justify-center">
-                                        <div className="text-green-500 flex items-center gap-4">
-                                            <span>{message}</span>
 
-                                            <button onClick={() => setMessage("")} className="absolute top-4 right-4 text-white hover:text-pink-500">
-                                                <X />
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                }
                             </div>
                         </form>
                     ) : (
@@ -185,7 +174,18 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                         </div>
                     )}
                 </div>
+                {message &&
+                    <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-200 h-50 border border-white/20 rounded-2xl flex items-center justify-center">
+                        <div className="text-green-500 flex items-center gap-4">
+                            <span>{message}</span>
 
+                            <button onClick={() => setMessage("")} className="absolute top-4 right-4 text-white hover:text-pink-500">
+                                <X />
+                            </button>
+                        </div>
+
+                    </div>
+                }
             </div>
 
         </>

@@ -24,7 +24,6 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
     const { message, setMessage } = useMessage();
     const { setIsLoading } = useLoading();
     const [orderModalOpen, setOrderModalOpen] = useState(false);
-    console.log(orderModalOpen);
     return (
         <>
             <div className="bg-pink/8 border-t border-pink/20 py-20 relative overflow-hidden w-full" id="order">

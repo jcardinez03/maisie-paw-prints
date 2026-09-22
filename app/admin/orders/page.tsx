@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Trash2, Edit, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useLoading } from "@/components/hooks/useLoading";
 import { Nunito, Pacifico, Dancing_Script } from "next/font/google";
 import useOrders from "./hooks/useOrders";
 import usePagination from "@/app/hooks/usePagination";
@@ -13,7 +12,7 @@ const dancingScript = Dancing_Script({ weight: "400", variable: "--font-dancing-
 export default function OrdersPage() {
   const { orders } = useOrders();
   const { currentPage, setCurrentPage, totalPages, currentOrders, nextPage, previousPage } = usePagination(orders);
-
+  const { setIsLoading } = useLoading();
   return (
     <main className="min-h-screen bg-black">
       {/* Header */}
