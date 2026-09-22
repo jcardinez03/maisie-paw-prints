@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Trash2, Edit, Clock, Check, Info } from "lucide-react";
+import { Trash2, Edit, Clock, Check, Info, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Nunito, Pacifico, Dancing_Script } from "next/font/google";
+
 
 const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
 const pacifico = Pacifico({ weight: "400", variable: "--font-pacifico", subsets: ["latin"] });
@@ -25,6 +26,16 @@ interface ShowOrderProps {
 }
 
 export default function ShowOrder({ order }: ShowOrderProps) {
+  const downloadImage = (base64Image: string, filename: string) => {
+    const link = document.createElement("a");
+
+    link.href = base64Image;
+    link.download = filename;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
   // Use default values for fields that might not exist
   const status = order.status || "pending";
   const createdAt = order.created_at || Date.now();
@@ -48,8 +59,16 @@ export default function ShowOrder({ order }: ShowOrderProps) {
         <div className="w-full md:w-[70%] mx-auto mb-10 px-5">
           <div className="rounded-2xl p-2 flex flex-wrap flex-row gap-4">
             {order.order_images.map((image) => (
-              <div key={image.id} className="w-30 h-30 overflow-hidden border border-white/10 md:flex-wrap">
-                <img src={image.image} alt={`order ${order.id} image`} className="w-full h-full object-cover" />
+              <div key={image.id} 
+              className="group relative w-30 h-30 overflow-hidden border border-white/10 md:flex-wrap" 
+              onClick={() => 
+                downloadImage(
+                  image.image,
+                  `order-${order.id}-image-${image.id}.jpg`
+                )
+              }>
+                <Download size={40} className="absolute inset-1/2 -translate-y-1/2 -translate-x-1/2 text-white group-hover:text-pink-500 transition-all opacity-0 group-hover:opacity-100"/>
+                <img src={image.image} alt={`order ${order.id} image`} className="w-full h-full object-cover"/>
               </div>
             ))}
           </div>
