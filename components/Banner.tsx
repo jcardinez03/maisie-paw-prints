@@ -61,7 +61,7 @@ export const Banner = ({ nunito, pacifico }: BannerProps) => {
                 </div>
             </div>
             <div className="border-t border-white/10 bg-white/5">
-                <div className="max w-6xl mx-auto px-5 py-5 grid grid-cols-3 gap-4 text-center">
+                <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-3 gap-4 text-center">
                     <div>
                         <div className={`font-display text-pink text-2xl ${pacifico}`}>20+</div>
                         <div className="text-white/40 text-xs font-semi-bold uppercase tracking-wide">Happy Customers</div>

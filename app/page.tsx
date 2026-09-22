@@ -6,6 +6,7 @@ import { Story } from "@/components/Story";
 import { Gallery } from "@/components/Gallery";
 import { Order } from "@/components/Order";
 import { Footer } from "@/components/Footer";
+import { Review } from "@/components/Review";
 import { Nunito , Pacifico, Dancing_Script} from "next/font/google";
 
 const nunito = Nunito({
@@ -35,6 +36,7 @@ export default function Home() {
       <Product pacifico={pacifico.className}/>
       <Story pacifico={pacifico.className} dancingScript={dancingScript.className}/>
       <Gallery pacifico={pacifico.className} dancingScript={dancingScript.className}/>
+      <Review  pacifico={pacifico.className} dancingScript={dancingScript.className}/>
       <Order pacifico={pacifico.className} dancingScript={dancingScript.className} />
       <Footer pacifico={pacifico.className} dancingScript={dancingScript.className} />
     </main>

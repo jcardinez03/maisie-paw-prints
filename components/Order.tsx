@@ -8,6 +8,9 @@ import { initialForm } from "@/app/types/OrderForm";
 import { useRouter } from "next/navigation";
 import useMessage from "@/app/hooks/useMessage";
 import { X } from "lucide-react";
+import { useLoading } from "./hooks/useLoading";
+import { useState } from "react";
+import { OrderModal } from "./modals/OrderModal";
 type OrderProps = {
     pacifico: string;
     dancingScript: string;
@@ -19,20 +22,30 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
     const { products } = useProducts();
     const router = useRouter();
     const { message, setMessage } = useMessage();
+    const { setIsLoading } = useLoading();
+    const [orderModalOpen, setOrderModalOpen] = useState(false);
+    console.log(orderModalOpen);
     return (
         <>
             <div className="bg-pink/8 border-t border-pink/20 py-20 relative overflow-hidden" id="order">
                 <div className="absolute inset-0 bg-pink/5">
                     {/* for paw background */}
+
                 </div>
+                {orderModalOpen &&
+                    <OrderModal setOrderModalOpen={setOrderModalOpen} />
+                }
                 <div className="max-w-2xl mx-auto px-5 text-center relative">
-                    <Image src="/images/icon.png" alt="Maisie Icon" width={50} height={50} className="rounded-full" />
+                    <Image src="/images/icon.png" alt="Maisie Icon" width={50} height={50} className="rounded-full mx-auto" />
                     <h2 className={`${pacifico} text-4xl md:text-5xl mt-4 mb-4 text-white`}>
                         Ready to <span className="text-pink">Print?</span>
                     </h2>
-                    <p className="text-white/55 text-lg leading-relaxed mb-8">
+                    <p className="text-white/55 text-lg leading-relaxed mb-4">
                         Send us your design and let's make something amazing together! DM us on social media or fill out our order form.
                     </p>
+                    <button type="button" className="text-xl text-pink rounded-2xl px-4 py-2 border border-pink mx-auto w-fit mb-8 hover:bg-pink hover:text-white transition-all duration-300" onClick={() => setOrderModalOpen(true)}>
+                        Order Instructions
+                    </button>
                     <div className="bg-white/5 border border-white/10 rounded-3xl p-8 text-left">
                         <h3 className="text-pink text-2xl mb-6 text-center">
                             Order Form
@@ -40,7 +53,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                         <div className="space-y-4">
                             <form onSubmit={(e) => {
                                 e.preventDefault();
-
+                                setIsLoading(true);
 
                                 storeOrder(form).then(() => {
                                     setForm(initialForm);
@@ -49,11 +62,12 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                     setTimeout(() => {
                                         setMessage("");
                                     }, 10000);
+                                }).finally(() => {
+                                    setTimeout(() => {
+                                        setIsLoading(false);
+                                    }, 3000);
                                 });
-
-                            }
-                            }
-                                method="post">
+                            }} method="post">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label htmlFor="name" className="text-white/70 text-sm font-bold block mb-1.5">Name</label>
@@ -130,12 +144,12 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                         <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-200 h-50 border border-white/20 rounded-2xl flex items-center justify-center">
                                             <div className="text-green-500 flex items-center gap-4">
                                                 <span>{message}</span>
-                                                
-                                                <button onClick={()=>setMessage("")} className="absolute top-4 right-4 text-white hover:text-pink-500">
+
+                                                <button onClick={() => setMessage("")} className="absolute top-4 right-4 text-white hover:text-pink-500">
                                                     <X />
                                                 </button>
                                             </div>
-                                       
+
                                         </div>
                                     }
                                 </div>
