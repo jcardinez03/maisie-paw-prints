@@ -94,6 +94,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                             onChange={(e) => setForm({ ...form, product: e.target.value })}
                                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-pink/50"
                                             placeholder="Example: Badge"
+                                            required
                                         />
                                     </div>
 
@@ -123,7 +124,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                                 image: files
                                             }));
                                         }
-                                        } multiple />
+                                        } multiple required/>
                                     </div>
                                     <div className="flex flex-col md:flex-row gap-4">
                                         {imagePreview.map((preview) => (
