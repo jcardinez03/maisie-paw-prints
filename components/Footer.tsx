@@ -45,7 +45,12 @@ export const Footer = ({ pacifico, dancingScript }: FooterProps) => {
                                 </li>
                                 <li>
                                     <a href="" className="flex flex-row items-center gap-2">
-                                        <PawPrint size={15} className="text-pink"/> hello@maisiepawprints.com
+                                        <PawPrint size={15} className="text-pink"/> maisiepawprints@gmail.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" className="flex flex-row items-center gap-2">
+                                        <PawPrint size={15} className="text-pink"/> 09932110887
                                     </a>
                                 </li>
                                 <li>

@@ -8,6 +8,7 @@ import { initialForm } from "@/app/types/ReviewForm";
 import useMessage from "@/app/hooks/useMessage";
 import { X } from "lucide-react";
 import { useLoading } from "./hooks/useLoading";
+import useReviews from "@/app/hooks/useReviews";
 type ReviewProps = {
     pacifico: string;
     dancingScript: string;
@@ -16,10 +17,11 @@ type ReviewProps = {
 export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
     const [isShowingForm, setIsShowingForm] = useState(false);
     const { form, setForm } = useForm(initialForm);
-    const { image, setImage, imagePreview } = useImagePreview();
+    const { setImage, imagePreview } = useImagePreview();
     const { message, setMessage } = useMessage();
-    const { isLoading, setIsLoading } = useLoading();
-
+    const { setIsLoading } = useLoading();
+    const { reviews } = useReviews();
+    console.log(reviews);
     const handleCancel = () => {
         setForm({
             name: "",
@@ -33,8 +35,8 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
 
     return (
         <>
-            <div className="bg-white/3 border-y border-white/10 py-20 w-full" id="reviews">
-                <div className="w-full md:w-[70%] mx-auto px-5 py-20" id="reviews">
+            <div className="bg-white/3 border-y border-white/10 py-10 w-full" id="reviews">
+                <div className="w-full md:w-[70%] mx-auto px-5" id="reviews">
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-2 mb-3">
                             <PawPrint className="text-pink" />
@@ -164,16 +166,36 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                             </div>
                         </form>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div className="text-center py-12 col-span-3">
-                                <p className="text-white/60 text-lg">No reviews yet</p>
-                                <p className="text-white/40 max-w-xl mx-auto mt-2">
-                                    Be the first to share your experience with Maisie Paw Prints!
-                                </p>
-                            </div>
+                        <div className="flex flex-col md:flex-row gap-10">
+                            {reviews.length > 0 ? (
+                                reviews.slice(0, 3).map((review) =>
+                                    <div key={review.id} className="group w-full text-white gap-5 items-center border border-white/20 px-6 py-5 rounded-lg hover:border-pink transition-all duration-300">
+                                        <div className="text-xl">{review.name}</div>
+                                        <div className="text-white/40">Product: {review.product}</div>
+                                        <div className="flex flex-row gap-2 mt-2">
+                                            {Array.from({ length: review.rating }).map((_, index) => (
+                                                <PawPrint key={index} size={15} fill="currentColor" className="text-pink"/>
+                                            ))}
+                                        </div>
+                                        <hr className="mt-3"/>
+                                        <div className="text-white mt-2">{review.details}</div>
+                                    </div>
+                                )
+                            )
+                                :
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    <div className="text-center py-12 col-span-3">
+                                        <p className="text-white/60 text-lg">No reviews yet</p>
+                                        <p className="text-white/40 max-w-xl mx-auto mt-2">
+                                            Be the first to share your experience with Maisie Paw Prints!
+                                        </p>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     )}
                 </div>
+
                 {message &&
                     <div className="fixed animate-fade-in top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 backdrop-blur-2xl w-[90%] max-w-200 min-h-50 border border-white/20 rounded-2xl flex items-center justify-center">
                         <div className="text-green-500 flex items-center gap-4">
