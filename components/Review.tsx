@@ -124,7 +124,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                                 image: files
                                             }));
                                         }
-                                        } multiple required/>
+                                        } multiple/>
                                     </div>
                                     <div className="flex flex-col md:flex-row gap-4">
                                         {imagePreview.map((preview) => (
