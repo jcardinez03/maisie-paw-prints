@@ -1,5 +1,5 @@
 export const getProducts = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, {
+    const response = await fetch(`/api/products`, {
         method:"GET",
         headers: {
             "Accept":"application/json"
