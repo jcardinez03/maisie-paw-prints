@@ -1,5 +1,5 @@
 export const getOrder = async (orderId: string) => {
-    const response = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/api/orders/${orderId}`,{
+    const response = await fetch (`/api/orders/${orderId}`,{
         method: "GET",
         headers : {
             Accept: "application/json"

@@ -19,7 +19,7 @@ export const storeReview = async (reviewForm: ReviewForm) => {
             formData.append('image[]', image)
         });
     
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reviews`, {
+        const response = await fetch(`/api/reviews`, {
             method: "POST",
             body: formData
         });

@@ -16,7 +16,7 @@ export default function OrderDetailsPage() {
     const fetchOrder = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/${orderId}`, {
+        const response = await fetch(`/api/orders/${orderId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json"
