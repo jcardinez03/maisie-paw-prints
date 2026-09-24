@@ -124,7 +124,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                                 image: files
                                             }));
                                         }
-                                        } multiple/>
+                                        } multiple />
                                     </div>
                                     <div className="flex flex-col md:flex-row gap-4">
                                         {imagePreview.map((preview) => (
@@ -167,7 +167,7 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                             </div>
                         </form>
                     ) : (
-                        <div className="flex flex-col md:flex-row gap-10">
+                        <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
                             {reviews.length > 0 ? (
                                 reviews.slice(0, 3).map((review) =>
                                     <div key={review.id} className="group w-full text-white gap-5 items-center border border-white/20 px-6 py-5 rounded-lg hover:border-pink transition-all duration-300">
@@ -175,23 +175,23 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                         <div className="text-white/40">Product: {review.product}</div>
                                         <div className="flex flex-row gap-2 mt-2">
                                             {Array.from({ length: review.rating }).map((_, index) => (
-                                                <PawPrint key={index} size={15} fill="currentColor" className="text-pink"/>
+                                                <PawPrint key={index} size={15} fill="currentColor" className="text-pink" />
                                             ))}
                                         </div>
-                                        <hr className="mt-3"/>
+                                        <hr className="mt-3" />
                                         <div className="text-white mt-2">{review.details}</div>
                                     </div>
                                 )
                             )
                                 :
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    <div className="text-center py-12 col-span-3">
-                                        <p className="text-white/60 text-lg">No reviews yet</p>
-                                        <p className="text-white/40 max-w-xl mx-auto mt-2">
-                                            Be the first to share your experience with Maisie Paw Prints!
-                                        </p>
-                                    </div>
+
+                                <div className="text-center py-12 col-span-3">
+                                    <p className="text-white/60 text-lg">No reviews yet</p>
+                                    <p className="text-white/40 max-w-xl mx-auto mt-2">
+                                        Be the first to share your experience with Maisie Paw Prints!
+                                    </p>
                                 </div>
+
                             }
                         </div>
                     )}
