@@ -34,28 +34,22 @@ export const Story = ({ pacifico, dancingScript }: StoryProps) => {
                     <div>
                         <div className="inline-flex items-center gap-2 border border-pink/30 text-pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 animate-pulse">Our story</div>
                         <h2 className={`${pacifico} text-4xl mb-5 text-white`}>
-                            Made with Paws <span className="text-pink">&</span> Passion
+                            Made with Paws, <br /> Passion <span className="text-pink">&</span> Memories
                         </h2>
-                        <p className="text-white/55 text-base leading-relaxed mb-4">MaisiePaw Prints started as a small home printshop run by a dog-loving duo who wanted to turn fan art and original designs into real, tangible goods.</p>
-                        <p className="text-white/55 text-base leading-relaxed mb-6">Our mascot Maisie — a fluffy, perpetually-smiling Shih Tzu Aspin  — keeps our spirits high and quality standards even higher.</p>
-                        <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-white/80 font-semibold text-sm">
-                                <PawPrint className="text-pink" width={20} height={20}/>
-                                Premium materials only
-                            </li>
-                            <li className="flex items-center gap-3 text-white/80 font-semibold text-sm">
-                                <PawPrint className="text-pink" width={20} height={20}/>
-                                Vibrant full-color printing
-                            </li>
-                            <li className="flex items-center gap-3 text-white/80 font-semibold text-sm">
-                                <PawPrint className="text-pink" width={20} height={20}/>
-                                Fast turnaround times
-                            </li>
-                            <li className="flex items-center gap-3 text-white/80 font-semibold text-sm">
-                                <PawPrint className="text-pink" width={20} height={20}/>
-                                Custom sizing available
-                            </li>
-                        </ul>
+                        <p className="font-bold leading-relaxed mb-4 text-pink">We believe every picture has a story worth keeping.</p>
+                        <p className="text-white/55 text-base leading-relaxed mb-6">MaisiePaw Prints started as a small home-based printshop run by a dog-loving duo with a passion for creativity, meaningful moments, and our furry companion, Maisie.</p>
+
+                        <p className="text-white/55 text-base leading-relaxed mb-6">What began with turning fan art and original designs into tangible products slowly grew into something more personal: creating little keepsakes that help people hold on to the moments that matter.</p>
+
+                        <p className="text-white/55 text-base leading-relaxed mb-6">Because sometimes, a picture is more than just a picture.</p>
+                        <p className="text-white/55 text-base leading-relaxed mb-6">
+                            It's the smile from a birthday you never want to forget. <br />
+                            It's your favorite photo with someone you love. <br />
+                            It's a beloved pet who will always have a special place in your heart.</p>
+
+                        <p className="text-white/55 text-base leading-relaxed mb-6">
+                            It's a trip, a friendship, a milestone, or a simple moment that becomes a beautiful memory.</p>
+
                     </div>
                 </div>
             </div>

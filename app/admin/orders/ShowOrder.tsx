@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Trash2, Edit, Clock, Check, Info, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Nunito, Pacifico, Dancing_Script } from "next/font/google";
+import { useState } from "react";
+import { useParams } from "next/navigation";
+import { updateStatus } from "./functions/updateStatus";
+import { useLoading } from "@/components/hooks/useLoading";
 
 
 const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
@@ -26,9 +30,14 @@ interface ShowOrderProps {
 }
 
 export default function ShowOrder({ order }: ShowOrderProps) {
+  const { id } = useParams();
+  const [newStatus, setNewStatus] = useState({
+    status: ""
+  });
+  const {setIsLoading} = useLoading();
+
   const downloadImage = (base64Image: string, filename: string) => {
     const link = document.createElement("a");
-
     link.href = base64Image;
     link.download = filename;
 
@@ -59,16 +68,16 @@ export default function ShowOrder({ order }: ShowOrderProps) {
         <div className="w-full md:w-[70%] mx-auto mb-10 px-5">
           <div className="rounded-2xl p-2 flex flex-wrap flex-row gap-4">
             {order.order_images.map((image) => (
-              <div key={image.id} 
-              className="group relative w-30 h-30 overflow-hidden border border-white/10 md:flex-wrap" 
-              onClick={() => 
-                downloadImage(
-                  image.image,
-                  `order-${order.id}-image-${image.id}.jpg`
-                )
-              }>
-                <Download size={40} className="absolute inset-1/2 -translate-y-1/2 -translate-x-1/2 text-white group-hover:text-pink-500 transition-all opacity-0 group-hover:opacity-100"/>
-                <img src={image.image} alt={`order ${order.id} image`} className="w-full h-full object-cover"/>
+              <div key={image.id}
+                className="group relative w-30 h-30 overflow-hidden border border-white/10 md:flex-wrap"
+                onClick={() =>
+                  downloadImage(
+                    image.image,
+                    `order-${order.id}-image-${image.id}.jpg`
+                  )
+                }>
+                <Download size={40} className="absolute inset-1/2 -translate-y-1/2 -translate-x-1/2 text-white group-hover:text-pink-500 transition-all opacity-0 group-hover:opacity-100" />
+                <img src={image.image} alt={`order ${order.id} image`} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -105,69 +114,79 @@ export default function ShowOrder({ order }: ShowOrderProps) {
           </div>
 
           {/* Action Buttons */}
-          <div className="px-6 py-6 border-t border-white/10">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    // Handle edit order - this would be implemented in the parent component
-                    alert("Edit functionality would be implemented here");
-                  }}
-                >
-                  <Edit className="mr-2 h-4 w-4" /> Edit Order
-                </Button>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            setIsLoading(true);
+            updateStatus(newStatus).then(() => {
+              
+            })
+          }}>
+            <div className="px-6 py-6 border-t border-white/10">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      // Handle edit order - this would be implemented in the parent component
+                      alert("Edit functionality would be implemented here");
+                    }}
+                  >
+                    <Edit className="mr-2 h-4 w-4" /> Edit Order
+                  </Button>
 
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    if (window.confirm("Are you sure you want to delete this order?")) {
-                      // Handle delete order - this would be implemented in the parent component
-                      alert("Delete functionality would be implemented here");
-                    }
-                  }}
-                >
-                  <Trash2 className="mr-2 h-4 w-4" /> Delete Order
-                </Button>
-              </div>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      if (window.confirm("Are you sure you want to delete this order?")) {
+                        // Handle delete order - this would be implemented in the parent component
+                        alert("Delete functionality would be implemented here");
+                      }
+                    }}
+                  >
+                    <Trash2 className="mr-2 h-4 w-4" /> Delete Order
+                  </Button>
+                </div>
 
-              {/* Status Update Buttons */}
-              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
-                <Button
-                  variant={status === "pending" ? "default" : "outline"}
-                  onClick={() => {
-                    // Update status to pending - this would be implemented in the parent component
-                    alert("Mark as pending functionality would be implemented here");
-                  }}
-                  disabled={status === "pending"}
-                >
-                  <Clock className="mr-2 h-4 w-4" /> Mark Pending
-                </Button>
+                {/* Status Update Buttons */}
+                <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
+                  <Button
+                    variant={status === "pending" ? "default" : "outline"}
+                    onClick={() => {
+                      // Update status to pending - this would be implemented in the parent component
+                      alert("Mark as pending functionality would be implemented here");
+                    }}
+                    disabled={status === "pending"}
+                  >
+                    <Clock className="mr-2 h-4 w-4" /> Mark Pending
+                  </Button>
 
-                <Button
-                  variant={status === "processing" ? "default" : "outline"}
-                  onClick={() => {
-                    // Update status to processing - this would be implemented in the parent component
-                    alert("Mark as processing functionality would be implemented here");
-                  }}
-                  disabled={status === "processing"}
-                >
-                  <Check className="mr-2 h-4 w-4" /> Mark Processing
-                </Button>
+                  <Button
+                    variant={status === "processing" ? "default" : "outline"}
+                    onClick={() => {
+                      setNewStatus((prev) => ({
+                        ...prev,
+                        status: "processing"
+                      }));
+                    }}
+                    disabled={status === "processing"}
+                  >
+                    <Check className="mr-2 h-4 w-4" /> Mark Processing
+                  </Button>
 
-                <Button
-                  variant={status === "finished" ? "default" : "outline"}
-                  onClick={() => {
-                    // Update status to finished - this would be implemented in the parent component
-                    alert("Mark as finished functionality would be implemented here");
-                  }}
-                  disabled={status === "finished"}
-                >
-                  <Info className="mr-2 h-4 w-4" /> Mark Finished
-                </Button>
+                  <Button
+                    variant={status === "finished" ? "default" : "outline"}
+                    onClick={() => {
+                      // Update status to finished - this would be implemented in the parent component
+                      alert("Mark as finished functionality would be implemented here");
+                    }}
+                    disabled={status === "finished"}
+                  >
+                    <Info className="mr-2 h-4 w-4" /> Mark Finished
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </main>

@@ -18,17 +18,15 @@ export const Banner = ({ nunito, pacifico }: BannerProps) => {
                     <h1
                         className={`${pacifico} font-display text-5xl md:text-6xl leading-tight mb-5 text-white`}
                     >
-                        Your Art <br /> <span className="text-pink">Beautifully</span>{" "}
-                        <br /> Crafted
+                        Your Memories, <br /> <span className="text-pink">Made to Keep</span><PawPrint className="inline text-pink ml-5" />
+                        <PawPrint className="inline ml-5 text-pink" />
+                        
                     </h1>
                     <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-md">
-                        Hi, I'm Maisie! Welcome to MaisiePaw Prints - where your custom
-                        designs become gorgeous badges, keychains, and more. Every order
-                        makes me wag my tail! 
-                        <PawPrint className="inline text-pink ml-5" />
-                        <PawPrint className="inline ml-5 text-pink" />
-                        <PawPrint className="inline ml-5 text-pink" />
+                        We turn your favorite photos, special moments and stories into cute little keepsakes you can hold, carry, and treasure
                     </p>
+
+                    <p className="text-white/40 text-md leading-relaxed max-w-md mb-8">Because some memories deserve to be more than just a picture on your phone.</p>
 
                     <div className={`flex flex-wrap gap-3 ${nunito}`}>
                         <a
