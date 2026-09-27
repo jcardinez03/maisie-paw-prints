@@ -114,13 +114,7 @@ export default function ShowOrder({ order }: ShowOrderProps) {
           </div>
 
           {/* Action Buttons */}
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            setIsLoading(true);
-            updateStatus(newStatus).then(() => {
-              
-            })
-          }}>
+          <form>
             <div className="px-6 py-6 border-t border-white/10">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
