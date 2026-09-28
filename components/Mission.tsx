@@ -8,11 +8,11 @@ type MissionProps = {
 export const Mission = ({ pacifico, dancingScript }: MissionProps) => {
     return (
         <div className="w-full md:w-[70%] mx-auto px-5 py-20 " id="products">
-            <div className="relative bg-pink/10 p-10 border border-pink rounded-4xl space-y-7">
-                <PawPrint className="absolute -top-4 -right-4 text-pink/50" size={45}/>
-                <h2 className={`text-white ${pacifico} text-center text-4xl md:text-5xl`}>Our Mission</h2>
+            <div className="relative bg-pink/5 p-10 border border-pink rounded-4xl space-y-7 text-center max-w-3xl mx-auto">
+                <PawPrint className="absolute -top-5 -right-5 text-pink/50" size={45}/>
+                <div className="inline-flex items-center gap-2 border border-pink/30 text-pink text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 animate-pulse">Our Mission</div>
 
-                <p className="text text-pink font-bold">We want to help you keep your memories close.</p>
+                <p className={`text text-white font-bold ${pacifico} text-4xl capitalize`}>To help you keep <br/>your <span className="text-pink">memories</span> close.</p>
 
                 <p className="text-white">We take your favorite photos, special moments, meaningful designs, and stories—and turn them into <span className="font-bold text-pink">cute, tangible keepsakes you can hold, carry, display, and treasure.</span></p>
 
