@@ -9,6 +9,10 @@ export interface Order {
     phone_number: string;
     product_id: number;
     details: string;
+    product: {
+        id: number;
+        name: string;
+    }
 }
 export default function useOrders() {
     const [orders, setOrders] = useState<Order[]>([]);

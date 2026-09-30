@@ -61,7 +61,9 @@ export default function OrdersPage() {
               <div className={`${nunito} font-semibold text-white/80`}>Customer</div>
               <div className={`${nunito} font-semibold text-white/80`}>Email</div>
               <div className={`${nunito} font-semibold text-white/80`}>Phone Number</div>
-              <div className={`${nunito} font-semibold text-white/80 text-end`}>Product Type</div>
+              <div className={`${nunito} font-semibold text-white/80`}>Product Type</div>
+              <div className={`${nunito} font-semibold text-white/80`}>Number of Items</div>
+              <div className={`${nunito} font-semibold text-white/80`}>Product Type</div>
             </div>
           </div>
 
@@ -85,8 +87,8 @@ export default function OrdersPage() {
                 <div>
                   {order.phone_number}
                 </div>
-                <div className="text-end">
-                  {order.product_id}
+                <div>
+                  {order.product.name}
                 </div>
               </div>
             )
