@@ -79,13 +79,13 @@ export default function OrdersPage() {
                     {order.name}
                   </Link>
                 </div>
-                <div>
+                <div className="text-white">
                   {order.product.name}
                 </div>
                 <div className={getStatusColor(order.status)}>
                   {order.status}
                 </div>
-                <div>
+                <div className="text-white">
                   {new Date(order.created_at).toLocaleString("en-PH", {
                     month: "short",
                     day: "numeric",
