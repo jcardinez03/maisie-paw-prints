@@ -6,6 +6,7 @@ interface OrderForm {
     product_id: number;
     details: string;
     image: File[];
+    number_of_items: number;
 }
 
 export const storeOrder = async (orderForm : OrderForm) => {
@@ -17,6 +18,7 @@ export const storeOrder = async (orderForm : OrderForm) => {
         formData.append("phone_number", orderForm.phone_number);
         formData.append("product_id", String(orderForm.product_id));
         formData.append("details", orderForm.details);
+        formData.append("number_of_items", String(orderForm.number_of_items));
     
         orderForm.image.forEach((image) => {
             formData.append('image[]', image);

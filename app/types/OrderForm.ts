@@ -5,6 +5,7 @@ export interface OrderForm {
     product_id: number;
     details: string;
     image: File[];
+    number_of_items: number;
 }
 
 export const initialForm: OrderForm = {
@@ -13,5 +14,6 @@ export const initialForm: OrderForm = {
     phone_number:"",
     product_id:0,
     details:"",
-    image:[]
+    image:[],
+    number_of_items: 0
 }

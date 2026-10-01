@@ -24,6 +24,7 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
     const { message, setMessage } = useMessage();
     const { setIsLoading } = useLoading();
     const [orderModalOpen, setOrderModalOpen] = useState(false);
+    console.log(form);
     return (
         <>
             <div className="bg-pink/8 border-t border-pink/20 py-20 relative overflow-hidden w-full" id="order">
@@ -61,6 +62,8 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                     setTimeout(() => {
                                         setMessage("");
                                     }, 5000);
+                                }).catch((error) => {
+                                    setMessage(error.message);
                                 }).finally(() => {
                                     setTimeout(() => {
                                         setIsLoading(false);
@@ -113,9 +116,16 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                         </select>
                                     </div>
 
-                                    <div>
+                                    <div className="sm:col-span-2">
                                         <label htmlFor="number_of_items" className="text-white/70 text-sm font-bold block mb-1.5">Number of Items</label>
-                                        <input type="number" name="number_of_items" id="number_of_items" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-white/5 placeholder-white/25 focus:outline none focus:border-pink/60 focus:ring-2 focus:ring-pink/15 transition alll" />
+                                        <input type="number" name="number_of_items" id="number_of_items" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-white/5 placeholder-white/25 focus:outline none focus:border-pink/60 focus:ring-2 focus:ring-pink/15 transition alll" placeholder="5"
+                                        onChange={(e) =>
+                                            setForm((prev) => ({
+                                                ...prev,
+                                                number_of_items: Number(e.target.value)
+                                            }))
+                                        }
+                                        required/>
                                     </div>
 
                                     <div className="sm:col-span-2">
