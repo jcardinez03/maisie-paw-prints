@@ -9,6 +9,7 @@ import useMessage from "@/app/hooks/useMessage";
 import { X } from "lucide-react";
 import { useLoading } from "./hooks/useLoading";
 import useReviews from "@/app/hooks/useReviews";
+import Image from "next/image";
 type ReviewProps = {
     pacifico: string;
     dancingScript: string;
@@ -180,6 +181,20 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                         </div>
                                         <hr className="mt-3" />
                                         <div className="text-white mt-2">{review.details}</div>
+                                        <div className="flex flex-row gap-3 flex-wrap">
+                                            {review.review_images.slice(0, 3).map((image, index) => (
+                                                <div className="relative">
+                                                    <Image src={image.image} alt="Review" width={80} height={80} className="w-30 h-30 object-cover" />
+
+                                                    {index === 2 && review.review_images.length > 3 && (
+                                                        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold">
+                                                            +{review.review_images.length - 3}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                            ))}
+                                        </div>
                                     </div>
                                 )
                             )

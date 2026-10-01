@@ -6,6 +6,10 @@ export interface ReviewProps {
     product: string;
     rating: number;
     details: string;
+    review_images: {
+        id: number;
+        image: string;
+    }[];
 }
 export default function useReviews() {
     const [reviews, setReviews] = useState<ReviewProps[]>([]);
