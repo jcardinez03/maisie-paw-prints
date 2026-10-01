@@ -36,6 +36,10 @@ export default function useOrders() {
         }
 
         fetchOrders();
+
+        const interval = setInterval(fetchOrders, 30000);
+
+        return () => clearInterval(interval);
     }, []);
 
     return { orders }
