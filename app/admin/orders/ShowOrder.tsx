@@ -20,7 +20,7 @@ interface ShowOrderProps {
     phone_number: string;
     product_id: number;
     details: string;
-    status?: string;
+    status: string;
     created_at?: number | string | Date;
     order_images?: {
       id: number;
@@ -31,10 +31,25 @@ interface ShowOrderProps {
 
 export default function ShowOrder({ order }: ShowOrderProps) {
   const { id } = useParams();
-  const [newStatus, setNewStatus] = useState({
-    status: ""
-  });
-  const {setIsLoading} = useLoading();
+  const { setIsLoading } = useLoading();
+
+  // Use default values for fields that might not exist
+  const status = order.status || "pending";
+  const createdAt = order.created_at || Date.now();
+  const [currentStatus, setCurrentStatus] = useState(order.status);
+
+  const handleStatusUpdate = async (newStatus: string) => {
+    try {
+      setCurrentStatus(newStatus);
+      await updateStatus({
+        id: order.id,
+        status: newStatus
+      });
+    } catch (error) {
+      setCurrentStatus(order.status);
+      console.error(error)
+    }
+  }
 
   const downloadImage = (base64Image: string, filename: string) => {
     const link = document.createElement("a");
@@ -45,9 +60,6 @@ export default function ShowOrder({ order }: ShowOrderProps) {
     link.click();
     document.body.removeChild(link);
   }
-  // Use default values for fields that might not exist
-  const status = order.status || "pending";
-  const createdAt = order.created_at || Date.now();
 
   return (
     <main className="min-h-screen bg-black">
@@ -102,7 +114,7 @@ export default function ShowOrder({ order }: ShowOrderProps) {
                 <p className={`${nunito} text-white`}>Order ID: #{order.id}</p>
                 <p className={`${nunito} text-white`}>Product ID: {order.product_id}</p>
                 <p className={`${nunito} text-white`}>Placed: {new Date(createdAt).toLocaleDateString()}</p>
-                <p className={`${nunito} text-white`}>Status: <span className={`text-${getStatusColor(status)} font-medium`}>{status}</span></p>
+                <p className={`${nunito} text-white`}>Status: <span className={`text-${getStatusColor(currentStatus)} font-medium`}>{currentStatus}</span></p>
               </div>
             </div>
 
@@ -114,73 +126,66 @@ export default function ShowOrder({ order }: ShowOrderProps) {
           </div>
 
           {/* Action Buttons */}
-          <form>
-            <div className="px-6 py-6 border-t border-white/10">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      // Handle edit order - this would be implemented in the parent component
-                      alert("Edit functionality would be implemented here");
-                    }}
-                  >
-                    <Edit className="mr-2 h-4 w-4" /> Edit Order
-                  </Button>
 
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      if (window.confirm("Are you sure you want to delete this order?")) {
-                        // Handle delete order - this would be implemented in the parent component
-                        alert("Delete functionality would be implemented here");
-                      }
-                    }}
-                  >
-                    <Trash2 className="mr-2 h-4 w-4" /> Delete Order
-                  </Button>
-                </div>
+          <div className="px-6 py-6 border-t border-white/10">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 w-full md:w-auto">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    // Handle edit order - this would be implemented in the parent component
+                    alert("Edit functionality would be implemented here");
+                  }}
+                >
+                  <Edit className="mr-2 h-4 w-4" /> Edit Order
+                </Button>
 
-                {/* Status Update Buttons */}
-                <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
-                  <Button
-                    variant={status === "pending" ? "default" : "outline"}
-                    onClick={() => {
-                      // Update status to pending - this would be implemented in the parent component
-                      alert("Mark as pending functionality would be implemented here");
-                    }}
-                    disabled={status === "pending"}
-                  >
-                    <Clock className="mr-2 h-4 w-4" /> Mark Pending
-                  </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to delete this order?")) {
+                      // Handle delete order - this would be implemented in the parent component
+                      alert("Delete functionality would be implemented here");
+                    }
+                  }}
+                >
+                  <Trash2 className="mr-2 h-4 w-4" /> Delete Order
+                </Button>
+              </div>
 
-                  <Button
-                    variant={status === "processing" ? "default" : "outline"}
-                    onClick={() => {
-                      setNewStatus((prev) => ({
-                        ...prev,
-                        status: "processing"
-                      }));
-                    }}
-                    disabled={status === "processing"}
-                  >
-                    <Check className="mr-2 h-4 w-4" /> Mark Processing
-                  </Button>
+              {/* Status Update Buttons */}
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
+                <Button
+                  variant={currentStatus === "pending" ? "default" : "outline"}
+                  onClick={() => handleStatusUpdate('pending')}
+                  disabled={currentStatus === "pending"}
+                >
+                  <Clock className="mr-2 h-4 w-4" /> Mark Pending
+                </Button>
 
-                  <Button
-                    variant={status === "finished" ? "default" : "outline"}
-                    onClick={() => {
-                      // Update status to finished - this would be implemented in the parent component
-                      alert("Mark as finished functionality would be implemented here");
-                    }}
-                    disabled={status === "finished"}
-                  >
-                    <Info className="mr-2 h-4 w-4" /> Mark Finished
-                  </Button>
-                </div>
+                <Button
+                  variant={currentStatus === "processing" ? "default" : "outline"}
+                  onClick={() => {
+                    handleStatusUpdate('processing')
+                  }}
+                  disabled={currentStatus === "processing"}
+                >
+                  <Check className="mr-2 h-4 w-4" /> Mark Processing
+                </Button>
+
+                <Button
+                  variant={currentStatus === "finished" ? "default" : "outline"}
+                  onClick={() => {
+                    handleStatusUpdate('finished')
+                  }}
+                  disabled={currentStatus === "finished"}
+                >
+                  <Info className="mr-2 h-4 w-4" /> Mark Finished
+                </Button>
               </div>
             </div>
-          </form>
+          </div>
+
         </div>
       </div>
     </main>

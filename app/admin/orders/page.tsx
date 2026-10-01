@@ -27,22 +27,22 @@ export default function OrdersPage() {
         </div>
 
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-8">
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
             <p className={`${nunito} text-sm text-white/60`}>Total Orders</p>
             <p className={`${pacifico} font-display text-3xl mb-2 text-white`}>{orders.length}</p>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
             <p className={`${nunito} text-sm text-white/60`}>Pending</p>
-            <p className={`${pacifico} font-display text-3xl mb-2 text-yellow-400`}></p>
+            <p className={`${pacifico} font-display text-3xl mb-2 text-yellow-400`}>{orders.filter(order=>order.status === 'pending').length}</p>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
             <p className={`${nunito} text-sm text-white/60`}>Processing</p>
-            <p className={`${pacifico} font-display text-3xl mb-2 text-blue-400`}></p>
+            <p className={`${pacifico} font-display text-3xl mb-2 text-blue-400`}>{orders.filter(order=>order.status === 'processing').length}</p>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
             <p className={`${nunito} text-sm text-white/60`}>Finished</p>
-            <p className={`${pacifico} font-display text-3xl mb-2 text-green-400`}></p>
+            <p className={`${pacifico} font-display text-3xl mb-2 text-green-400`}>{orders.filter(order=>order.status === 'finished').length}</p>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
             <p className={`${nunito} text-sm text-white/60`}>Total Revenue</p>
@@ -59,18 +59,16 @@ export default function OrdersPage() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <div className={`${nunito} font-semibold text-white/80`}>Order ID</div>
               <div className={`${nunito} font-semibold text-white/80`}>Customer</div>
-              <div className={`${nunito} font-semibold text-white/80`}>Email</div>
-              <div className={`${nunito} font-semibold text-white/80`}>Phone Number</div>
               <div className={`${nunito} font-semibold text-white/80`}>Product Type</div>
-              <div className={`${nunito} font-semibold text-white/80`}>Number of Items</div>
-              <div className={`${nunito} font-semibold text-white/80`}>Product Type</div>
+              <div className={`${nunito} font-semibold text-white/80`}>Status</div>
+              <div className={`${nunito} font-semibold text-white/80`}>Date Ordered</div>
             </div>
           </div>
 
           {/* Table Body - Empty State */}
           {currentOrders.length > 0 ?
             currentOrders.map((order) =>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-15 py-4 text-white">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-15 py-4">
                 <div className="">
                   <Link href={`/admin/orders/${order.id}`} className="text-white hover:text-pink transition-colors">
                     {order.id}
@@ -82,13 +80,17 @@ export default function OrdersPage() {
                   </Link>
                 </div>
                 <div>
-                  {order.email}
-                </div>
-                <div>
-                  {order.phone_number}
-                </div>
-                <div>
                   {order.product.name}
+                </div>
+                <div className={getStatusColor(order.status)}>
+                  {order.status}
+                </div>
+                <div>
+                  {new Date(order.created_at).toLocaleString("en-PH", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                 </div>
               </div>
             )
@@ -132,4 +134,16 @@ export default function OrdersPage() {
       </div>
     </main>
   );
+}
+function getStatusColor(status: string): string {
+  switch (status.toLowerCase()) {
+    case "pending":
+      return "text-yellow-400";
+    case "processing":
+      return "text-blue-400";
+    case "finished":
+      return "text-green-400";
+    default:
+      return "text-white";
+  }
 }

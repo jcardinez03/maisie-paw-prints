@@ -13,6 +13,8 @@ export interface Order {
         id: number;
         name: string;
     }
+    status:string;
+    created_at: string;
 }
 export default function useOrders() {
     const [orders, setOrders] = useState<Order[]>([]);

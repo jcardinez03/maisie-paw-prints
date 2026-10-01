@@ -1,10 +1,10 @@
-type OrderProps = {
+type updateStatusProps = {
     id: number,
     status: string
 }
 
-export const updateStatus = async ({id, status} : OrderProps) => {
-    const response = await fetch(`api/orders/${id}`, {
+export const updateStatus = async ({id, status} : updateStatusProps) => {
+    const response = await fetch(`/api/orders/${id}`, {
         method: "PATCH", 
         headers : {
             "Content-Type": "application/json"

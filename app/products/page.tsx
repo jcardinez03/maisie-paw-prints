@@ -1,6 +1,6 @@
-"use client";
 import { ProductsItem } from "@/components/ProductsItem";
 import { Nunito , Pacifico, Dancing_Script} from "next/font/google";
+import { Metadata } from "next";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -19,8 +19,13 @@ const dancingScript = Dancing_Script({
   subsets: ["latin"],
 });
 
-export const Product = ({ pacifico }: { pacifico: string }) => {
-  const productsData = [
+export const metadata: Metadata = {
+  title: "MaisiePaw Prints - Products",
+  description: "Explore our range of customizable products including badge pins, sintra boards, keychains, and more.",
+};
+
+export default function ProductsPage() {
+  const products = [
     {
       id: "badge-pins",
       title: "Badge Pins",
@@ -34,7 +39,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Customizable design",
         "Perfect for giveaways, souvenirs, gifts, events & everyday collecting"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     },
     {
       id: "sintra-board",
@@ -49,7 +54,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Customizable with your own photo or design",
         "Great for room décor, displays, gifts & personalized projects"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     },
     {
       id: "mirror",
@@ -64,7 +69,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Customizable design",
         "Great for souvenirs, giveaways, birthdays & special occasions"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     },
     {
       id: "acrylic",
@@ -81,7 +86,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Customizable with your own photo or design",
         "Perfect for gifts, souvenirs, couples & special occasions"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     },
     {
       id: "photobook",
@@ -95,7 +100,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Turn memories into a keepsake",
         "Perfect for birthdays, anniversaries, travels, family memories & special milestones"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     },
     {
       id: "tote",
@@ -108,12 +113,12 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
         "Cute & customizable designs",
         "Perfect for everyday use, gifts & collectors"
       ],
-      pacifico: pacifico
+      pacifico: pacifico.className
     }
   ];
 
   return (
-    <>
+    <main className="relative bg-black">
       <div className="w-full md:w-[70%] mx-auto px-5 py-20" id="products">
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -125,7 +130,7 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
           <p className="text-white/50 text-lg max-w-lg mx-auto">From tiny pins to big boards - we print all your creative dreams with quality and care.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {productsData.map(product => (
+          {products.map(product => (
             <ProductsItem
               key={product.id}
               id={product.id}
@@ -139,6 +144,6 @@ export const Product = ({ pacifico }: { pacifico: string }) => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 }
