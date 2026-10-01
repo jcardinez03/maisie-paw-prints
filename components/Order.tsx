@@ -113,6 +113,11 @@ export const Order = ({ pacifico, dancingScript }: OrderProps) => {
                                         </select>
                                     </div>
 
+                                    <div>
+                                        <label htmlFor="number_of_items" className="text-white/70 text-sm font-bold block mb-1.5">Number of Items</label>
+                                        <input type="number" name="number_of_items" id="number_of_items" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-white/5 placeholder-white/25 focus:outline none focus:border-pink/60 focus:ring-2 focus:ring-pink/15 transition alll" />
+                                    </div>
+
                                     <div className="sm:col-span-2">
                                         <label htmlFor="details" className="text-white/70 text-sm font-bold block mb-1.5">Order Details</label>
                                         <textarea name="details" id="details" className="w-full border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white bg-white/5 placeholder-white/25 focus:outline-none focus:border-pink/60 focus:ring-2 focus:ring-pink/15 transition-all resize-none" placeholder="Describe your design, quantity, size, and any special requests..." value={form.details} onChange={(e) => setForm((prev) => ({
