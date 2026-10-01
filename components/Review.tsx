@@ -182,13 +182,13 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
                                         <hr className="mt-3" />
                                         <div className="text-white mt-2">{review.details}</div>
                                         <div className="flex flex-row gap-3 flex-wrap">
-                                            {review.review_images.slice(0, 3).map((image, index) => (
+                                            {review.review_images.slice(0, 4).map((image, index) => (
                                                 <div className="relative">
                                                     <Image src={image.image} alt="Review" width={80} height={80} className="w-30 h-30 object-cover" />
 
-                                                    {index === 2 && review.review_images.length > 3 && (
+                                                    {index === 3 && review.review_images.length > 4 && (
                                                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold">
-                                                            +{review.review_images.length - 3}
+                                                            +{review.review_images.length - 4}
                                                         </div>
                                                     )}
                                                 </div>
