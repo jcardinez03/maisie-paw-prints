@@ -2,7 +2,6 @@ import { PawPrint } from "lucide-react"
 import { useLoading } from "./hooks/useLoading"
 export const Loading = () => {
     const { isLoading } = useLoading();
-    console.log(isLoading);
     if (!isLoading) return null;
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">

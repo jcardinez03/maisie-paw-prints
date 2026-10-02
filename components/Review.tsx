@@ -22,7 +22,6 @@ export const Review = ({ pacifico, dancingScript }: ReviewProps) => {
     const { message, setMessage } = useMessage();
     const { setIsLoading } = useLoading();
     const { reviews } = useReviews();
-    console.log(reviews);
     const handleCancel = () => {
         setForm({
             name: "",
