@@ -8,7 +8,7 @@ type StoryProps = {
 export const Story = ({ pacifico, dancingScript }: StoryProps) => {
     return (
         <>
-            <div className="bg-white/3 border-y border-white/10 py-20 w-full" id="story">
+            <div className="bg-white/5 border-y border-white/10 py-20 w-full" id="story">
                 <div className="w-full md:w-[70%] mx-auto px-5 items-center text-center">
                     <div className="relative  p-10 border border-pink rounded-4xl space-y-7 text-center max-w-3xl mx-auto">
                         <PawPrint className="absolute -top-5 -right-5 text-pink/50" size={45} />

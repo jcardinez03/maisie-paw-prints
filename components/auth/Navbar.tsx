@@ -3,13 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Menu } from "lucide-react";
 import { useMobileMenu } from "../hooks/useMobileMenu";
-
+import { logout } from "./functions/logout";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 type NavBarProps = {
     pacifico: string;
     dancingScript: string;
 }
 export const Navbar = ({ pacifico, dancingScript }: NavBarProps) => {
     const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
+    const router = useRouter();
+    const pathname = usePathname();
     return (
 
         <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
@@ -45,8 +49,18 @@ export const Navbar = ({ pacifico, dancingScript }: NavBarProps) => {
                 }
 
                 <div className="hidden md:flex items-center gap-8">
+                    {pathname !== "/login" &&
+                        <button
+                            onClick={() => {
+                                logout();
+                                router.push("/");
+                            }}
+                            className="text-white/70 font-semibold text-sm hover:text-pink transition-colors"
+                        >
+                            Logout
+                        </button>
+                    }
                     <Link href="/" className="text-white/70 font-semibold text-sm hover:text-pink transition-colors">Home</Link>
-
                 </div>
             </div>
             {isMobileMenuOpen &&

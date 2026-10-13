@@ -30,12 +30,12 @@ export const Banner = ({ nunito, pacifico }: BannerProps) => {
 
                     <div className={`flex flex-wrap gap-3 ${nunito}`}>
                         <a
-                            href="#"
+                            href="#products"
                             className="bg-pink text-black font-bold px-8 py-3.5 rounded-full hover:bg-[#f0c0d0] transition-all shadow-lg shadow-[#f4a7bf]/25 hover:-translate-y-0.5 duration-200 w-47"
                         >
                             See all Products
                         </a>
-                        <a className="border border-white/20 text-white w-47 text-center font-bold px-8 py-3.5 rounded-full hover:border-[#f4a7bf]/ transition-colors">
+                        <a href="#orders" className="border border-white/20 text-white w-47 text-center font-bold px-8 py-3.5 rounded-full hover:border-[#f4a7bf]/ transition-colors">
                             Get a Quote
                         </a>
                     </div>
